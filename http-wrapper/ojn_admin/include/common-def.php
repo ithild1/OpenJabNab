@@ -4,7 +4,8 @@ define('ROOT_WWW_ADMIN', 'http://<HOSTNAME>/ojn_admin/');
 define('ROOT_WWW_API', 'http://<HOSTNAME>/ojn_api/');
 define('ADMIN_EMAIL', '<EMAIL>');
 
-session_start('openJabNab');
+session_name('openJabNab');
+session_start();
 require_once(ROOT_SITE.'class/api.class.php');
 require_once(ROOT_SITE.'class/template.class.php');
 $ojnAPI = new ojnApi();
