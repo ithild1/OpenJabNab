@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/ithild1/OpenJabNab/compare/v0.1.0...v0.1.1) (2026-02-27)
+
+
+### CI/CD
+
+* chain docker build after release-please via job output ([005c8d1](https://github.com/ithild1/OpenJabNab/commit/005c8d14e21325b4c77d494c95c5a27b301fbf0a))
+
 ## [0.1.0](https://github.com/ithild1/OpenJabNab/compare/v0.0.0...v0.1.0) (2026-02-27)
 
 
