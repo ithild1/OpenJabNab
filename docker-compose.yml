@@ -1,0 +1,21 @@
+services:
+  openjabnab:
+    build: .
+    image: openjabnab:latest
+    ports:
+      - "80:80"       # Web interface + PHP proxy (Nabaztag HTTP API)
+      - "5222:5222"   # XMPP (Nabaztag device connection)
+    environment:
+      # Hostname or IP accessible by the Nabaztag devices
+      - OJN_DOMAIN=deepcool.localdomain
+      # TTS provider: "google" (free) or "acapela" (requires account)
+      - OJN_TTS=google
+      # Log verbosity: Debug, Warning, Error
+      - OJN_LOG_LEVEL=Warning
+    volumes:
+      # Persistent user data (accounts, bunnies, ztamps)
+      - ojn_data:/var/www/html/ojn_local
+    restart: unless-stopped
+
+volumes:
+  ojn_data:
