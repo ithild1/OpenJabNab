@@ -50,7 +50,14 @@ docker pull ithild1/openjabnab:latest
 | `80` | Interface web & panneau d'administration (`/ojn_admin/`) |
 | `5222` | XMPP — connexion des appareils |
 
-Les données utilisateurs (comptes, lapins enregistrés) sont stockées dans un volume Docker nommé et persistent entre les redémarrages.
+Deux volumes Docker nommés assurent la persistance des données entre les redémarrages :
+
+| Volume | Contenu |
+|--------|---------|
+| `ojn_server_data` | Comptes, lapins (bunnies), ztamps, log serveur — données du serveur C++ |
+| `ojn_web_data` | Cache TTS (MP3), assets plugins, bootcode — données servies par nginx |
+
+> Vous migrez depuis une version antérieure ? Voir [MIGRATION.md](MIGRATION.md).
 
 ### Configuration
 
@@ -179,7 +186,14 @@ docker pull ithild1/openjabnab:latest
 | `80` | Web interface & admin panel (`/ojn_admin/`) |
 | `5222` | XMPP — device connection |
 
-User data (accounts, bunny registrations) is stored in a named Docker volume and persists across container restarts.
+Two named Docker volumes ensure data persistence across container restarts:
+
+| Volume | Contents |
+|--------|----------|
+| `ojn_server_data` | Accounts, bunnies, ztamps, server log — C++ server data |
+| `ojn_web_data` | TTS audio cache (MP3), plugin assets, bootcode — nginx-served data |
+
+> Upgrading from an older version? See [MIGRATION.md](MIGRATION.md).
 
 ### Configuration
 

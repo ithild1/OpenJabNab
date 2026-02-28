@@ -71,6 +71,13 @@ RUN mkdir -p /var/www/html/ojn_local/bootcode \
              /var/www/html/ojn_local/tts \
     && chown -R www-data:www-data /var/www/html
 
+# Persistent C++ server data lives in /opt/openjabnab/data/ (mounted as volume).
+# Symlinks make the hardcoded relative paths in the binary resolve there transparently.
+RUN mkdir -p /opt/openjabnab/data && \
+    ln -s /opt/openjabnab/data/accounts /opt/openjabnab/bin/accounts && \
+    ln -s /opt/openjabnab/data/bunnies  /opt/openjabnab/bin/bunnies  && \
+    ln -s /opt/openjabnab/data/ztamps   /opt/openjabnab/bin/ztamps
+
 WORKDIR /opt/openjabnab/bin
 
 # Web interface (HTTP proxy + admin)

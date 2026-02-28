@@ -13,9 +13,13 @@ services:
       # Log verbosity: Debug, Warning, Error
       - OJN_LOG_LEVEL=Warning
     volumes:
-      # Persistent user data (accounts, bunnies, ztamps)
-      - ojn_data:/var/www/html/ojn_local
+      # Web runtime data: TTS audio cache, plugin assets, bootcode
+      - ojn_web_data:/var/www/html/ojn_local
+      # C++ server data: accounts, bunnies, ztamps, server log
+      # (symlinked from /opt/openjabnab/bin/ so the binary finds them transparently)
+      - ojn_server_data:/opt/openjabnab/data
     restart: unless-stopped
 
 volumes:
-  ojn_data:
+  ojn_web_data:
+  ojn_server_data:

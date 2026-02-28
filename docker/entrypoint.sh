@@ -33,11 +33,16 @@ ListeningHttpPort = 8080
 ListeningXmppPort = 5222
 
 [Log]
-LogFile = openjabnab.log
+LogFile = /opt/openjabnab/data/openjabnab.log
 LogFileLevel = Debug
 LogScreenLevel = ${OJN_LOG_LEVEL}
 DisplayCronLog = false
 EOF
+
+# Ensure persistent data directories exist on first run (fresh volume)
+mkdir -p /opt/openjabnab/data/accounts \
+         /opt/openjabnab/data/bunnies \
+         /opt/openjabnab/data/ztamps
 
 # Required by php-fpm to create its socket
 mkdir -p /run/php
