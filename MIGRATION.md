@@ -1,6 +1,6 @@
 # Guide de migration Docker
 
-## v0.1.x → v0.2.0 — Refonte des volumes de persistance
+## v0.1.1 → v0.1.2 — Refonte des volumes de persistance
 
 ### Pourquoi cette migration ?
 
@@ -11,7 +11,7 @@ Les données critiques du serveur C++ — **comptes utilisateurs, lapins (bunnie
 étaient stockées dans `/opt/openjabnab/bin/accounts|bunnies|ztamps` et **perdues à chaque
 redémarrage du conteneur**.
 
-La version 0.2.0 corrige cela avec deux volumes distincts :
+La version 0.1.2 corrige cela avec deux volumes distincts :
 
 | Volume | Chemin dans le conteneur | Contenu |
 |--------|--------------------------|---------|
